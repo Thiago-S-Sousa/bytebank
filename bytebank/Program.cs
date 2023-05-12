@@ -1,80 +1,38 @@
-﻿
-using bytebank;
+﻿using bytebank.Conta;
+using bytebank.Titular;
 
-//ContaCorrente contaDoAndre = new ContaCorrente();
+ContaCorrente conta = new ContaCorrente(14, "1234-v");
 
-//contaDoAndre.titular = "André Silva Soares";
-//contaDoAndre.numero_agencia = 15;
-//contaDoAndre.conta = "1010-x";
-//contaDoAndre.saldo = 100;
+conta.SetSaldo(280);
 
-//Console.WriteLine("Saldo atual: " + contaDoAndre.saldo);
+conta.Titular = new Cliente();
+conta.Titular.Nome = "Thiago Santos d Sousa";
+conta.Titular.Cpf = "43546789-90";
+conta.Titular.Profissao = "Estoquista";
 
-//ContaCorrente contaDaMaria = new ContaCorrente();
+Console.WriteLine(conta.GetSaldo());
+Console.WriteLine(conta.Titular.Cpf);
 
-//contaDaMaria.titular = "Maria Sousa de Jesus";
-//contaDaMaria.numero_agencia = 17;
-//contaDaMaria.conta = "2020-x";
-//contaDaMaria.saldo = 350;
+//-------------------------------------------------------//
 
-//Console.WriteLine("Saldo atual: " + contaDaMaria.saldo);
+ContaCorrente conta2 = new ContaCorrente(13, "1678-o");
+conta2.Titular = new Cliente();
 
-//contaDoAndre.Transferir(50, contaDaMaria);
+conta2.Titular.Cpf = "455590573-98";
 
-//Console.WriteLine("Saldo atual após transferência: " + contaDaMaria.saldo);
-//Console.WriteLine("Saldo atual após transferência: " + contaDoAndre.saldo);
 
-//contaDoAndre.Depositar(100);
+ContaCorrente conta3 = new ContaCorrente(16, "1699-e");
+conta3.Titular = new Cliente();
 
-//Console.WriteLine("Saldo atual após deposito: " + contaDoAndre.saldo);
+conta3.Titular.Cpf = "455532443-00";
 
-// if(contaDoAndre.Sacar(250) == true)
-// {
-//    Console.WriteLine("Saldo atual após saque: " + contaDoAndre.saldo);
-// }
-// else
-// {
-//    Console.WriteLine("Saldo insuficiente.");
-// }
+Console.WriteLine(conta2.Titular.Cpf);
+Console.WriteLine(conta3.Titular.Cpf);
 
-//ContaCorrente contaDoPedro = new ContaCorrente();
+Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
 
-//contaDoPedro.titular = "Pedro ALves de Morais";
-//contaDoPedro.numero_agencia = 21211545;
-//contaDoPedro.conta = "1015-x";
-//contaDoPedro.saldo = 100;
+//-------------------------------------------------------//
 
-//ContaCorrente contaDoPedro2 = new ContaCorrente();
-
-//contaDoPedro2.titular = "Pedro ALves de Morais";
-//contaDoPedro2.numero_agencia = 21211545;
-//contaDoPedro2.conta = "1015-x";
-//contaDoPedro2.saldo = 100;
-
-//Console.WriteLine(contaDoPedro == contaDoPedro2);
-
-//double valor = 300;
-//double valor2 = valor;
-
-//Console.WriteLine(valor == valor2);
-
-Cliente cliente = new Cliente();
-
-cliente.nome = "Thiago Santos de Sousa";
-cliente.cpf = "095748477-38";
-cliente.profissao = "programador web";
-
-ContaCorrente conta = new ContaCorrente();
-conta.titular = cliente;
-conta.numero_agencia = 18;
-conta.conta = "1010-y";
-conta.saldo = 1500.00;
-
-Console.WriteLine("titlar: " + conta.titular.nome);
-Console.WriteLine("CPF: " + conta.titular.cpf);
-Console.WriteLine("Profissão: " + conta.titular.profissao);
-Console.WriteLine("Nº Agência: " + conta.numero_agencia);
-Console.WriteLine("Nº Conta: " + conta.conta);
-Console.WriteLine("Saldo: " + conta.saldo);
+Console.WriteLine(Cliente.TotalClientesCadastrados);
 
 Console.ReadLine();
